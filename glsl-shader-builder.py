@@ -61,7 +61,15 @@ def main():
         # Write the build shader string to our target file
         writeStringToFile("bin/" + outputFileName, builtShaderString)
     else:
-        print(">> ERROR! - Insufficient commands enter, please check your parameters")
+        print(">> ERROR!")
+        if len(sys.argv) == 1:
+            print(">>>> Please enter source main file name and target file name")
+        elif len(sys.argv) == 2:
+            print(">>>> Please enter target file name")
+        elif len(sys.argv) > 3:
+            print(">>>> Too many parameters supplied")
+        else:
+            print(">>>> Unknown error - please contact developer")
 
 if __name__ == '__main__':
     main()
