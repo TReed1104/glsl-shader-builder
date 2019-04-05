@@ -1,6 +1,6 @@
 import sys
 
-def readShaderFile(shaderName):
+def readFile(shaderName):
     fileContent = ""
     try:
         shaderFile = open(shaderName, "r+")    # Open the file
@@ -19,8 +19,8 @@ def main():
     print("---------------------------")
     
     shaderName = sys.argv[1]                    # Get the shader main file name
-    fileContent = readShaderFile(shaderName)    # Read the file
-    print("\n", fileContent)
+    mainFileText = readFile(shaderName)          # Read the file
+    print("\n", mainFileText)
 
 if __name__ == '__main__':
     main()
