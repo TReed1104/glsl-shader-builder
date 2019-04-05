@@ -55,7 +55,7 @@ def main():
         try:
             os.makedirs("bin")
         except FileExistsError:
-            print("Directory already exists")
+            pass
 
         # Write the build shader string to our target file
         writeStringToFile("bin/" + outputFileName, builtShaderString)
