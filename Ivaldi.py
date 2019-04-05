@@ -40,9 +40,7 @@ def executeIncludes(fileText):
     
 
 def main():
-    print("---------------------------")
-    print("Ivaldi, The Shader Smith")
-    print("---------------------------")
+    print("---------------------------\nIvaldi, The Shader Smith\n---------------------------")
     
     if len(sys.argv) == 3:
         print(">> Building shader:", sys.argv[1])
