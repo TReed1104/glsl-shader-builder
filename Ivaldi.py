@@ -9,7 +9,6 @@ def readFileToString(shaderName):
         for x in shaderFile:
             fileContent += x
         shaderFile.close()  # close the file
-        print(">> The file ", shaderName, " was read successfully!")
         return fileContent
     except (OSError, IOError) as e:
         print(">> ERROR! - An error occured: ", e)
@@ -32,7 +31,7 @@ def executeIncludes(fileText):
             # get the file to includes name using the index of the token, length of token and length of line.
             nameOfFileToInclude = line[(indexTokenStartsAt + len(includeToken)) : len(line)]
             nameOfFileToInclude = nameOfFileToInclude.strip()          # Remove the leading or trailing spaces
-            print(">> #include found", nameOfFileToInclude)
+            print(">>", includeToken, "found replacing with contents of file:", nameOfFileToInclude)
 
             fileTextToInclude = readFileToString(nameOfFileToInclude)
             linesOfText[index] = fileTextToInclude
