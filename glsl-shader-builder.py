@@ -1,22 +1,26 @@
 import sys
 
+def readShaderFile(shaderName):
+    fileContent = ""
+    try:
+        shaderFile = open(shaderName, "r+")    # Open the file
+        for x in shaderFile:
+            fileContent += x
+        shaderFile.close()  # close the file
+        print(">> The file ", shaderName, " was read successfully!")
+        return fileContent
+    except (OSError, IOError) as e:
+        print(">> ERROR! - An error occured: ", e)
+        return fileContent
+
 def main():
     print("---------------------------")
     print("Ivaldi, The Shader Smith")
     print("---------------------------")
     
-    # Get the shader main file name
-    shaderName = sys.argv[1]
-    print("Shader Name:", shaderName)
-
-    try:
-        shaderFile = open(shaderName, "r+")    # Open the file
-        for x in shaderFile:
-            print(x)
-        shaderFile.close()  # close the file
-        print()
-    except (OSError, IOError) as e:
-        print("An error occured: ", e)
+    shaderName = sys.argv[1]                    # Get the shader main file name
+    fileContent = readShaderFile(shaderName)    # Read the file
+    print("\n", fileContent)
 
 if __name__ == '__main__':
     main()
