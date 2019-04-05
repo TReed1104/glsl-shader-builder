@@ -51,6 +51,12 @@ def main():
     mainFileText = readFileToString(shaderName)         # Read the file
     builtShaderString = executeIncludes(mainFileText)
 
+    # Create the bin directory to output our file to
+    try:
+        os.makedirs("bin")
+    except FileExistsError:
+        print("Directory already exists")
+
     # Write the build shader string to our target file
     writeStringToFile("bin/" + outputFileName, builtShaderString)
 
