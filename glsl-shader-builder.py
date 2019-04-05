@@ -1,7 +1,7 @@
 import sys
 import re
 
-def readFile(shaderName):
+def readFileToString(shaderName):
     fileContent = ""
     try:
         shaderFile = open(shaderName, "r+")    # Open the file
@@ -25,7 +25,7 @@ def executeIncludes(fileText):
             nameOfFileToInclude = nameOfFileToInclude.strip()          # Remove the leading or trailing spaces
             print(">> #include found", nameOfFileToInclude)
 
-            fileTextToInclude = readFile(nameOfFileToInclude)
+            fileTextToInclude = readFileToString(nameOfFileToInclude)
             linesOfText[index] = fileTextToInclude
     outputText = "".join(linesOfText)
     return outputText
@@ -38,7 +38,7 @@ def main():
     
     #shaderName = sys.argv[1]                    # Get the shader main file name
     shaderName = "src/fragment_main.glsl"
-    mainFileText = readFile(shaderName)         # Read the file
+    mainFileText = readFileToString(shaderName)         # Read the file
     builtShader = executeIncludes(mainFileText)
     print(builtShader)
 
