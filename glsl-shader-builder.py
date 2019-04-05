@@ -50,7 +50,9 @@ def main():
     outputFileName = "fragment_test.frag"
     mainFileText = readFileToString(shaderName)         # Read the file
     builtShaderString = executeIncludes(mainFileText)
-    print(builtShaderString)
-    
+
+    # Write the build shader string to our target file
+    writeStringToFile("bin/" + outputFileName, builtShaderString)
+
 if __name__ == '__main__':
     main()
