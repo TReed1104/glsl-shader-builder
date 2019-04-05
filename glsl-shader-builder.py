@@ -1,5 +1,6 @@
 import sys
 import re
+import os
 
 def readFileToString(shaderName):
     fileContent = ""
@@ -13,6 +14,14 @@ def readFileToString(shaderName):
     except (OSError, IOError) as e:
         print(">> ERROR! - An error occured: ", e)
         return fileContent
+
+def writeStringToFile(fileName, stringToWrite):
+    try:
+        outputFile = open(fileName, "w")
+        outputFile.write(stringToWrite)
+        outputFile.close()
+    except (OSError, IOError) as e:
+        print(">> ERROR! - An error occured: ", e)
 
 def executeIncludes(fileText):
     includeToken = "#include "
@@ -38,9 +47,10 @@ def main():
     
     #shaderName = sys.argv[1]                    # Get the shader main file name
     shaderName = "src/fragment_main.glsl"
+    outputFileName = "fragment_test.frag"
     mainFileText = readFileToString(shaderName)         # Read the file
-    builtShader = executeIncludes(mainFileText)
-    print(builtShader)
-
+    builtShaderString = executeIncludes(mainFileText)
+    print(builtShaderString)
+    
 if __name__ == '__main__':
     main()
