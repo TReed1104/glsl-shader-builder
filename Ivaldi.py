@@ -23,7 +23,7 @@ def writeStringToFile(fileName, stringToWrite):
         print(">> ERROR! - An error occured: ", e)
 
 def executeIncludes(fileText):
-    includeToken = "#include "
+    includeToken = "#include"
     linesOfText = re.split("(\n)", fileText)
     for index, line in enumerate(linesOfText):
         indexTokenStartsAt = line.find(includeToken)
