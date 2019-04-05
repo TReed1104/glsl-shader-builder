@@ -31,7 +31,7 @@ def executeIncludes(fileText):
             # get the file to includes name using the index of the token, length of token and length of line.
             nameOfFileToInclude = line[(indexTokenStartsAt + len(includeToken)) : len(line)]
             nameOfFileToInclude = nameOfFileToInclude.strip()          # Remove the leading or trailing spaces
-            print(">>", includeToken, "found replacing with contents of file:", nameOfFileToInclude)
+            print(">>>>", includeToken, "found replacing with contents of file:", nameOfFileToInclude)
 
             fileTextToInclude = readFileToString(nameOfFileToInclude)
             linesOfText[index] = fileTextToInclude
@@ -45,11 +45,9 @@ def main():
     print("---------------------------")
     
     if len(sys.argv) == 3:
-        shaderName = sys.argv[1]                            # Get the shader main file name
-
-        outputFileName = sys.argv[2]                        # Get the name for the output file
-        mainFileText = readFileToString(shaderName)         # Read the shader main
-        builtShaderString = executeIncludes(mainFileText)   # build the shader file, compiling down the includes/requires
+        print(">> Building shader:", sys.argv[1])
+        mainShaderSource = readFileToString(sys.argv[1])        # Read the shader main
+        builtShaderSource = executeIncludes(mainShaderSource)   # build the shader file, compiling down the includes/requires
 
         # Create the bin directory to output our file to
         try:
@@ -58,7 +56,9 @@ def main():
             pass
 
         # Write the build shader string to our target file
-        writeStringToFile("bin/" + outputFileName, builtShaderString)
+        writeStringToFile("bin/" + sys.argv[2], builtShaderSource)
+        print(">> Shader source saved to:", "bin/" + sys.argv[2])
+
     else:
         print(">> ERROR!")
         if len(sys.argv) == 1:
