@@ -45,20 +45,23 @@ def main():
     print("Ivaldi, The Shader Smith")
     print("---------------------------")
     
-    #shaderName = sys.argv[1]                    # Get the shader main file name
-    shaderName = "src/fragment_main.glsl"
-    outputFileName = "fragment_test.frag"
-    mainFileText = readFileToString(shaderName)         # Read the file
-    builtShaderString = executeIncludes(mainFileText)
+    if len(sys.argv) == 3:
+        shaderName = sys.argv[1]                            # Get the shader main file name
 
-    # Create the bin directory to output our file to
-    try:
-        os.makedirs("bin")
-    except FileExistsError:
-        print("Directory already exists")
+        outputFileName = sys.argv[2]                        # Get the name for the output file
+        mainFileText = readFileToString(shaderName)         # Read the shader main
+        builtShaderString = executeIncludes(mainFileText)   # build the shader file, compiling down the includes/requires
 
-    # Write the build shader string to our target file
-    writeStringToFile("bin/" + outputFileName, builtShaderString)
+        # Create the bin directory to output our file to
+        try:
+            os.makedirs("bin")
+        except FileExistsError:
+            print("Directory already exists")
+
+        # Write the build shader string to our target file
+        writeStringToFile("bin/" + outputFileName, builtShaderString)
+    else:
+        print(">> ERROR! - Insufficient commands enter, please check your parameters")
 
 if __name__ == '__main__':
     main()
