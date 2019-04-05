@@ -11,7 +11,7 @@ def readFileToString(shaderName):
         shaderFile.close()  # close the file
         return fileContent
     except (OSError, IOError) as e:
-        print(">> ERROR! - An error occured: ", e)
+        print(">>>> ERROR! - An error occured: ", e)
         return fileContent
 
 def writeStringToFile(fileName, stringToWrite):
@@ -20,7 +20,7 @@ def writeStringToFile(fileName, stringToWrite):
         outputFile.write(stringToWrite)
         outputFile.close()
     except (OSError, IOError) as e:
-        print(">> ERROR! - An error occured: ", e)
+        print(">>>> ERROR! - An error occured: ", e)
 
 def executeIncludes(fileText):
     includeToken = "#include"
@@ -47,22 +47,25 @@ def main():
     if len(sys.argv) == 3:
         print(">> Building shader:", sys.argv[1])
         mainShaderSource = readFileToString(sys.argv[1])        # Read the shader main
-        builtShaderSource = executeIncludes(mainShaderSource)   # build the shader file, compiling down the includes/requires
+        if mainShaderSource != "":
+            builtShaderSource = executeIncludes(mainShaderSource)   # build the shader file, compiling down the includes/requires
 
-        # Create the bin directory to output our file to
-        try:
-            os.makedirs("bin")
-        except FileExistsError:
-            pass
+            # Create the bin directory to output our file to
+            try:
+                os.makedirs("bin")
+            except FileExistsError:
+                pass
 
-        # Write the build shader string to our target file
-        writeStringToFile("bin/" + sys.argv[2], builtShaderSource)
-        print(">> Shader source saved to:", "bin/" + sys.argv[2])
+            # Write the build shader string to our target file
+            writeStringToFile("bin/" + sys.argv[2], builtShaderSource)
+            print(">> Shader source saved to:", "bin/" + sys.argv[2])
+        else:
+            print(">>>> ERROR! - unable to open main source file, please check the entered name")
 
     else:
         print(">> ERROR!")
         if len(sys.argv) == 1:
-            print(">>>> Please enter source main file name and target file name")
+            print(">>>> Please enter main source file name and target file name")
         elif len(sys.argv) == 2:
             print(">>>> Please enter target file name")
         elif len(sys.argv) > 3:
