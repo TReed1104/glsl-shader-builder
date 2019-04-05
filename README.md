@@ -11,8 +11,8 @@ Guide:
 ```bash
 python .\Ivaldi.py <MAIN_SOURCE_FILE> <OUTPUT_FILE>
 ```
-* <MAIN_SOURCE_FILE>  - The main glsl file you wish to compile.
-* <OUTPUT_FILE>       - The file name you wish to save the compiled GLSL source to.
+* <MAIN_SOURCE_FILE>  - The main GLSL file you wish to compile (the file including the #include preprocessors)
+* <OUTPUT_FILE>       - The target location you wish to save the compiled GLSL source to.
 
 Example:
 ```bash
