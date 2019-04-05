@@ -4,7 +4,7 @@ import re
 def readFileToString(shaderName):
     fileContent = ""
     try:
-        shaderFile = open(shaderName, "r+")    # Open the file to read
+        shaderFile = open(shaderName, "r")    # Open the file to read
         for x in shaderFile:
             fileContent += x
         shaderFile.close()  # close the file
