@@ -1,3 +1,5 @@
 ## Ignore the compiled binary folder
 /bin
-
+/build
+/compiled
+/output

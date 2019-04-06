@@ -48,15 +48,15 @@ def main():
         if mainShaderSource != "":
             builtShaderSource = executeIncludes(mainShaderSource)   # build the shader file, compiling down the includes/requires
 
-            # Create the bin directory to output our file to
+            # Create the output directory to output our file to
             try:
-                os.makedirs("bin")
+                os.makedirs("output")
             except FileExistsError:
                 pass
 
             # Write the build shader string to our target file
-            writeStringToFile("bin/" + sys.argv[2], builtShaderSource)
-            print(">> Shader source saved to:", "bin/" + sys.argv[2])
+            writeStringToFile("output/" + sys.argv[2], builtShaderSource)
+            print(">> Shader source saved to:", "output/" + sys.argv[2])
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
 
