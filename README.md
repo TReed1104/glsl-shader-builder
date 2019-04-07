@@ -19,7 +19,7 @@ Example:
 python .\Ivaldi.py .\src\fragment_main.glsl basic_fragment.frag
 ```
 
-## Naming Convetions
+## Naming Conventions
 **WIP**
 
 According to the "Glslang" guidelines [(Seen here)](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/), the correct file naming conventions are as follows:
