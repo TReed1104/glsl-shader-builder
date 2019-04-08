@@ -6,9 +6,7 @@ layout (location = 2) in vec2 vertexUV;
 out vec3 fragmentColour;
 out vec2 UV;
 
-uniform mat4 u_modelMatrix;
-uniform mat4 u_viewMatrix;
-uniform mat4 u_projectionMatrix;
+#include shaders/mvp_vertex_uniforms.glsl
 
 void main() {
 	fragmentColour = vertexColor;
