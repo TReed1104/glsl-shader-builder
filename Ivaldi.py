@@ -44,13 +44,13 @@ def main():
         os.makedirs("output")
     except FileExistsError:
         pass
-    numberOfParamtersSupplied = len(sys.argv)
-    if numberOfParamtersSupplied > 1 and numberOfParamtersSupplied <= 3:
+    numberOfParameters = len(sys.argv)
+    if numberOfParameters > 1 and numberOfParameters <= 3:
         print(">> Building shader:", sys.argv[1])
         mainShaderSource = readFileToString(sys.argv[1])  # Read the shader main
         if mainShaderSource != "":
             builtShaderSource = executeIncludes(mainShaderSource)  # Compile the shader file, compiling down the includes/requires
-            if (numberOfParamtersSupplied == 3):
+            if (numberOfParameters == 3):
                 writeStringToFile("output/" + sys.argv[2], builtShaderSource)  # Write the compiled shader string to our target file
                 print(">> Shader source saved to:", "output/" + sys.argv[2])
             else:
@@ -60,7 +60,7 @@ def main():
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
     else:
-        if numberOfParamtersSupplied > 3:
+        if numberOfParameters > 3:
             print(">> ERROR! - Too many command line parameters supplied")
         else:
             print(">> ERROR! - Please check your supplied parameters")
