@@ -6,7 +6,7 @@ layout (location = 2) in vec2 vertexUV;
 out vec3 fragmentColour;
 out vec2 UV;
 
-#include shaders/mvp_vertex_uniforms.glsl
+#include components/mvp_vertex_uniforms.glsl
 
 void main() {
 	fragmentColour = vertexColor;

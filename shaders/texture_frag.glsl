@@ -4,9 +4,9 @@ in vec2 UV;
 
 out vec4 outputColour;
 
-#include shaders/global_fragment_uniforms.glsl
+#include components/global_fragment_uniforms.glsl
 
-#include shaders/texture_fragment_uniforms.glsl
+#include components/texture_fragment_uniforms.glsl
 
 void main() {
 	if (u_hasTexture) {
