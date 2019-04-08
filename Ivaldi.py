@@ -54,8 +54,7 @@ def main():
                 writeStringToFile("output/" + sys.argv[2], builtShaderSource)  # Write the compiled shader string to our target file
                 print(">> Shader source saved to:", "output/" + sys.argv[2])
             else:
-                # TODO: trim the folder location from the name
-                fileName = sys.argv[1].split("\\")[-1]
+                fileName = sys.argv[1].split("\\")[-1]                      # trims the second parameter down to its last sub-string, which SHOULD be the file name
                 writeStringToFile("output/" + fileName, builtShaderSource)  # Write the compiled shader string to our target file
                 print(">> Shader source saved to:", "output/" + fileName)
         else:
