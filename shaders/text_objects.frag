@@ -4,9 +4,9 @@ in vec2 UV;
 
 out vec4 outputColour;
 
-#include components/global_fragment_uniforms.glsl
+#include components/global_uniforms.glsl
 
-#include components/texture_fragment_uniforms.glsl
+#include components/texture_uniforms.glsl
 uniform vec3 u_textColour;
 
 void main() {
