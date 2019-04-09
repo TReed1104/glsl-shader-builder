@@ -1,8 +1,7 @@
 #version 330
 #include components/vertex_in.glsl
 
-out vec3 fragmentColour;
-out vec2 UV;
+#include components/vertex_out.glsl
 
 #include components/mvp_uniforms.glsl
 
