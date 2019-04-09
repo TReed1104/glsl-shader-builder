@@ -1,5 +1,5 @@
 #version 330
-in vec3 fragmentColour;
+#include components/fragment_in.glsl
 
 out vec4 outputColour;
 
