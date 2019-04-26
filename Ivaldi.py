@@ -40,10 +40,10 @@ def executeIncludes(fileText):
 
 def main():
     print("---------------------------\nIvaldi, The Shader Smith\n---------------------------")
-
+    outputDirectoryName = "output"
     # Create the output directory to output our file to
     try:
-        os.makedirs("output")
+        os.makedirs(outputDirectoryName)
         print(">> Creating the output directory")
     except FileExistsError:
         pass
@@ -61,12 +61,12 @@ def main():
         if mainShaderSource != "":
             builtShaderSource = executeIncludes(mainShaderSource)  # Compile the shader file, compiling down the includes/requires
             if (arguments.output != ""):
-                writeStringToFile("output/" + arguments.output, builtShaderSource)  # Write the compiled shader string to our target file
-                print(">> Shader source saved to:", "output/" + arguments.output)
+                writeStringToFile(outputDirectoryName + "/" + arguments.output, builtShaderSource)  # Write the compiled shader string to our target file
+                print(">> Shader source saved to:", outputDirectoryName + "/" + arguments.output)
             else:
                 fileName = arguments.input.split("\\")[-1]                  # trims the second parameter down to its last sub-string, which SHOULD be the file name
-                writeStringToFile("output/" + fileName, builtShaderSource)  # Write the compiled shader string to our target file
-                print(">> Shader source saved to:", "output/" + fileName)
+                writeStringToFile(outputDirectoryName + "/" + fileName, builtShaderSource)  # Write the compiled shader string to our target file
+                print(">> Shader source saved to:", outputDirectoryName + "/" + fileName)
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
     else:
