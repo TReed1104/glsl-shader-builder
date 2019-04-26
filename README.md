@@ -9,7 +9,8 @@ GLSL as a language itself has no understanding of files, so does not support pre
 ## Usage
 Guide:
 ```bash
-python .\Ivaldi.py [-i <INPUT_FILE>] [-o <OUTPUT_FILE>]
+python .\Ivaldi.py [-i INPUT] [-o OUTPUT]
+python .\Ivaldi.py [--input INPUT] [--output OUTPUT]
 ```
 * <MAIN_SOURCE_FILE>  - The main GLSL file you wish to compile (the file including the #include preprocessors)
 * <OUTPUT_FILE>       - The target location you wish to save the compiled GLSL source to.
