@@ -1,6 +1,7 @@
 import sys
 import re
 import os
+from argparse import ArgumentParser
 
 def readFileToString(shaderName):
     fileContent = ""
@@ -44,26 +45,30 @@ def main():
         os.makedirs("output")
     except FileExistsError:
         pass
-    numberOfParameters = len(sys.argv)
-    if numberOfParameters > 1 and numberOfParameters <= 3:
-        print(">> Building shader:", sys.argv[1])
-        mainShaderSource = readFileToString(sys.argv[1])  # Read the shader main
+
+    # Register the program's command line arguments
+    parser = ArgumentParser(description='A lightweight GLSL preprocessor')
+    parser.add_argument("-i", "--input", dest='input', help='Name of the GLSL file to compile', default='', type=str)
+    parser.add_argument("-o", "--output", dest='output', help='Name of the file to output the compiled shader to', default='', type=str)
+    arguments = parser.parse_args()
+
+    # Program runtime
+    if arguments.input != "":
+        print(">> Building shader:", arguments.input)
+        mainShaderSource = readFileToString(arguments.input)  # Read the shader main
         if mainShaderSource != "":
             builtShaderSource = executeIncludes(mainShaderSource)  # Compile the shader file, compiling down the includes/requires
-            if (numberOfParameters == 3):
-                writeStringToFile("output/" + sys.argv[2], builtShaderSource)  # Write the compiled shader string to our target file
-                print(">> Shader source saved to:", "output/" + sys.argv[2])
+            if (arguments.output != ""):
+                writeStringToFile("output/" + arguments.output, builtShaderSource)  # Write the compiled shader string to our target file
+                print(">> Shader source saved to:", "output/" + arguments.output)
             else:
-                fileName = sys.argv[1].split("\\")[-1]                      # trims the second parameter down to its last sub-string, which SHOULD be the file name
+                fileName = arguments.input.split("\\")[-1]                  # trims the second parameter down to its last sub-string, which SHOULD be the file name
                 writeStringToFile("output/" + fileName, builtShaderSource)  # Write the compiled shader string to our target file
                 print(">> Shader source saved to:", "output/" + fileName)
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
     else:
-        if numberOfParameters > 3:
-            print(">> ERROR! - Too many command line parameters supplied")
-        else:
-            print(">> ERROR! - Please check your supplied parameters")
+        print(">>>> ERROR! - No input source file supplied!")
 
 if __name__ == '__main__':
     main()
