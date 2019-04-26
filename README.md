@@ -17,7 +17,8 @@ python .\Ivaldi.py [--input INPUT] [--output OUTPUT]
 
 Example:
 ```bash
-python .\Ivaldi.py -i .\src\fragment_main.glsl -o basic_fragment.frag
+python .\Ivaldi.py -i .\shaders\default.vert
+python .\Ivaldi.py -i .\shaders\default.vert -o compiled_shader.vert
 ```
 
 ## Naming Conventions
