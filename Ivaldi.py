@@ -40,9 +40,11 @@ def executeIncludes(fileText):
 
 def main():
     print("---------------------------\nIvaldi, The Shader Smith\n---------------------------")
+
     # Create the output directory to output our file to
     try:
         os.makedirs("output")
+        print(">> Creating the output directory")
     except FileExistsError:
         pass
 
