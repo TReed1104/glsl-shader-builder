@@ -12,8 +12,8 @@ Guide:
 python .\Ivaldi.py [-i INPUT] [-o OUTPUT]
 python .\Ivaldi.py [--input INPUT] [--output OUTPUT]
 ```
-* INPUT   - The main GLSL file you wish to compile (the file including the #include preprocessors)
-* OUTPUT  - The target location you wish to save the compiled GLSL source to.
+* INPUT - The main GLSL file you wish to compile (the file including the #include preprocessors)
+* OUTPUT - The target location you wish to save the compiled GLSL source to.
 
 Example:
 ```bash
