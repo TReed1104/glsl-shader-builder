@@ -12,9 +12,9 @@ Guide:
 python .\Ivaldi.py [-h] [-i INPUT] [-o OUTPUT]
 python .\Ivaldi.py [--help] [--input INPUT] [--output OUTPUT]
 ```
-* -h, --help - Show the App's help guide
-* -i INPUT, --input INPUT - Name of the GLSL file to compile
-* -o OUTPUT, --output OUTPUT - Name of the file to out the compiled shader source to 
+* -h, --help - Output the scripts command list
+* -i INPUT, --input INPUT - GLSL source file to compile
+* -o OUTPUT, --output OUTPUT - Where to output the compiled shader to
 
 Example:
 ```bash
