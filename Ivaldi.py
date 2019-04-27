@@ -45,8 +45,10 @@ def main():
     parser.add_argument("-o", "--output", dest='output', help='Where to output the compiled shader to', default='', type=str)
     arguments = parser.parse_args()
     
+    # Program runtime
     print("---------------------------\nIvaldi, The Shader Smith\n---------------------------")
-    outputDirectoryName = "output"
+    outputDirectoryName = "output"  # the directory to compile the shaders into
+    
     # Create the output directory to output our file to
     try:
         os.makedirs(outputDirectoryName)
@@ -54,8 +56,9 @@ def main():
     except FileExistsError:
         pass
 
-    # Program runtime
+    # Execute the supplied flags
     if arguments.input != "":
+        # If we've been supplied with an input, compile it
         print(">> Building shader:", arguments.input)
         mainShaderSource = readFileToString(arguments.input)  # Read the shader main
         if mainShaderSource != "":
@@ -70,6 +73,9 @@ def main():
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
     else:
+        # TODO: Check for a compile all flag, if no compile all flag, close.
+
+        # If there is no input, output an error
         print(">>>> ERROR! - No input source file supplied!")
 
 if __name__ == '__main__':
