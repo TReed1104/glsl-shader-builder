@@ -12,11 +12,13 @@ Guide:
 python .\Ivaldi.py [-h] [-i INPUT] [-o OUTPUT]
 python .\Ivaldi.py [--help] [--input INPUT] [--output OUTPUT]
 ```
-* INPUT - The main GLSL file you wish to compile (the file including the #include preprocessors)
-* OUTPUT - The target location you wish to save the compiled GLSL source to.
+* -h, --help - Show the App's help guide
+* -i INPUT, --input INPUT - Name of the GLSL file to compile
+* -o OUTPUT, --output OUTPUT - Name of the file to out the compiled shader source to 
 
 Example:
 ```bash
+python .\Ivaldi.py -h
 python .\Ivaldi.py -i .\shaders\default.vert
 python .\Ivaldi.py -i .\shaders\default.vert -o compiled_shader.vert
 ```
