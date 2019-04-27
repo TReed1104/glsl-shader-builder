@@ -50,8 +50,8 @@ def main():
 
     # Register the program's command line arguments
     parser = ArgumentParser(description='A lightweight GLSL preprocessor')
-    parser.add_argument("-i", "--input", dest='input', help='Name of the GLSL file to compile', default='', type=str)
-    parser.add_argument("-o", "--output", dest='output', help='Name of the file to output the compiled shader to', default='', type=str)
+    parser.add_argument("-i", "--input", dest='input', help='GLSL source file to compile', default='', type=str)
+    parser.add_argument("-o", "--output", dest='output', help='Where to output the compiled shader to', default='', type=str)
     arguments = parser.parse_args()
 
     # Program runtime
