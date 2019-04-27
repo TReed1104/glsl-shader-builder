@@ -76,7 +76,7 @@ def main():
         # TODO: Check for a compile all flag, if no compile all flag, close.
 
         # If there is no input, output an error
-        print(">>>> ERROR! - No input source file supplied!")
+        print(">>>> ERROR! - No valid flags supplied")
 
 if __name__ == '__main__':
     main()
