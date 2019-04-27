@@ -39,6 +39,12 @@ def executeIncludes(fileText):
     return outputText
 
 def main():
+    # Register the program's command line arguments
+    parser = ArgumentParser(description='A lightweight GLSL preprocessor')
+    parser.add_argument("-i", "--input", dest='input', help='GLSL source file to compile', default='', type=str)
+    parser.add_argument("-o", "--output", dest='output', help='Where to output the compiled shader to', default='', type=str)
+    arguments = parser.parse_args()
+    
     print("---------------------------\nIvaldi, The Shader Smith\n---------------------------")
     outputDirectoryName = "output"
     # Create the output directory to output our file to
@@ -47,12 +53,6 @@ def main():
         print(">> Creating the output directory")
     except FileExistsError:
         pass
-
-    # Register the program's command line arguments
-    parser = ArgumentParser(description='A lightweight GLSL preprocessor')
-    parser.add_argument("-i", "--input", dest='input', help='GLSL source file to compile', default='', type=str)
-    parser.add_argument("-o", "--output", dest='output', help='Where to output the compiled shader to', default='', type=str)
-    arguments = parser.parse_args()
 
     # Program runtime
     if arguments.input != "":
