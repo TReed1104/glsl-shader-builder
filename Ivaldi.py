@@ -63,13 +63,13 @@ def main():
         pass
 
     # Execute the supplied flags
-    if arguments.input != "":
+    if arguments.input is not None:
         # If we've been supplied with an input, compile it
         print(">> Building shader:", arguments.input)
         mainShaderSource = readFileToString(arguments.input)  # Read the shader main
         if mainShaderSource != "":
             builtShaderSource = executeIncludes(mainShaderSource)  # Compile the shader file, compiling down the includes/requires
-            if (arguments.output != ""):
+            if (arguments.output is not None):
                 writeStringToFile(outputDirectoryName + "/" + arguments.output, builtShaderSource)  # Write the compiled shader string to our target file
                 print(">> Shader source saved to:", outputDirectoryName + "/" + arguments.output)
             else:
@@ -78,11 +78,9 @@ def main():
                 print(">> Shader source saved to:", outputDirectoryName + "/" + fileName)
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
-    else:
+    elif arguments.input_directory is not None:
         # TODO: Check for a compile all flag, if no compile all flag, close.
-
-        # If there is no input, output an error
-        print(">>>> ERROR! - No valid flags supplied")
+        print("TO BE IMPLEMENTED")
 
 if __name__ == '__main__':
     main()
