@@ -41,11 +41,15 @@ def executeIncludes(fileText):
 def main():
     # Register the program's command line arguments
     parser = ArgumentParser(description='A lightweight GLSL preprocessor')
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("-i", "--input", dest='input', help='GLSL source file to compile', default='', type=str)
-    group.add_argument("-a", "--all", dest='input_directory', help='Compile all shaders found in the supplied directory', default='', type=str)
-    parser.add_argument("-o", "--output", dest='output', help='Where to output the compiled shader to', default='', type=str)
+    # Inputs arguments, these are mutually exclusive
+    inputMutualExclusionGroup = parser.add_mutually_exclusive_group(required=True)
+    inputMutualExclusionGroup.add_argument("-i", "--input", dest='input', help='GLSL source file to compile', type=str)
+    inputMutualExclusionGroup.add_argument("-a", "--all", dest='input_directory', help='Compile all shaders found in the supplied directory', type=str)
+    # Output arguments
+    parser.add_argument("-o", "--output", dest='output', help='Where to output the compiled shader to. If --all is used, this argument will be ignored', type=str)
+    # Parse the arguments to a usable form
     arguments = parser.parse_args()
+
     
     # Program runtime
     print("---------------------------\nIvaldi, The Shader Smith\n---------------------------")
