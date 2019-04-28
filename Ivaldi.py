@@ -64,7 +64,7 @@ def main():
 
     # Execute the supplied flags
     if arguments.input is not None:
-        # If we've been supplied with an input, compile it
+        # If the --input flag been supplied with an input, compile it
         print(">> Building shader:", arguments.input)
         mainShaderSource = readFileToString(arguments.input)  # Read the shader main
         if mainShaderSource != "":
@@ -79,7 +79,9 @@ def main():
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
     elif arguments.input_directory is not None:
-        # TODO: Check for a compile all flag, if no compile all flag, close.
+        # If the --all flag is set, compile all the files in the supplied directory
+        # Get a list of all the files in the input_directory
+        # Iterate for the number of files, compile the file just like the --input flag does but without the --output check
         print("TO BE IMPLEMENTED")
 
 if __name__ == '__main__':
