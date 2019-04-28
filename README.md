@@ -9,18 +9,20 @@ GLSL as a language itself has no understanding of files, so does not support pre
 ## Usage
 Guide:
 ```bash
-python .\Ivaldi.py [-h] [-i INPUT] [-o OUTPUT]
-python .\Ivaldi.py [--help] [--input INPUT] [--output OUTPUT]
+python Ivaldi.py [-h] (-i INPUT | -a INPUT_DIRECTORY) [-o OUTPUT]
+python Ivaldi.py [--help] (--input INPUT | --all INPUT_DIRECTORY) [--output OUTPUT]
 ```
-* -h, --help - Output the scripts command list
-* -i INPUT, --input INPUT - GLSL source file to compile
-* -o OUTPUT, --output OUTPUT - Where to output the compiled shader to
+* -h, --help - Show this help message and exit
+* -i INPUT, --input INPUT - Specify the GLSL source file to be compile.
+* -a INPUT_DIRECTORY, --all INPUT_DIRECTPRY - Compile all shaders found in the supplied directory, using their source file names as their output file names.
+* -o OUTPUT, --output OUTPUT - Where to output the compiled shader to. If --all is used, this argument will be ignored.
 
 Example:
 ```bash
-python .\Ivaldi.py -h
-python .\Ivaldi.py -i .\shaders\default.vert
-python .\Ivaldi.py -i .\shaders\default.vert -o compiled_shader.vert
+python Ivaldi.py -h
+python Ivaldi.py -i shaders\default.vert
+python Ivaldi.py -a shaders
+python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
 ```
 
 ## Naming Conventions
