@@ -29,9 +29,7 @@ def executeIncludes(fileText):
     for index, line in enumerate(linesOfText):
         indexTokenStartsAt = line.find(includeToken)
         if indexTokenStartsAt != -1:
-            # get the file to includes name using the index of the token, length of token and length of line.
-            nameOfFileToInclude = line[(indexTokenStartsAt + len(includeToken)):len(line)]
-            nameOfFileToInclude = nameOfFileToInclude.strip()  # Remove the leading or trailing spaces
+            nameOfFileToInclude = line[(indexTokenStartsAt + len(includeToken)) : len(line)].strip()        # Get the substring containing the file to include's name, and remove the leading or trailing spaces
             print(">>>>", includeToken, "found replacing with contents of file:", nameOfFileToInclude)
             fileTextToInclude = readFileToString(nameOfFileToInclude)
             linesOfText[index] = fileTextToInclude
