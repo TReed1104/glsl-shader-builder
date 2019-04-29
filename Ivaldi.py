@@ -59,23 +59,23 @@ def main():
     except FileExistsError:
         pass
 
-    # Execute the supplied flags
-    if arguments.input is not None:
-        # If the --input flag been supplied with an input, compile it
+    # Execute the supplied flags input flags
+    if arguments.input is not None:                                                                         # If the --input flag been supplied with an input, compile it
         print(">> Building shader:", arguments.input)
-        mainShaderSource = readFileToString(arguments.input)  # Read the shader main
+        mainShaderSource = readFileToString(arguments.input)                                                # Read the shader source file
         if mainShaderSource != "":
-            builtShaderSource = executeIncludes(mainShaderSource)  # Compile the shader file, compiling down the includes/requires
+            builtShaderSource = executeIncludes(mainShaderSource)                                           # Compile the shader file, compiling down the includes/requires
             if (arguments.output is not None):
-                writeStringToFile(outputDirectoryName + "/" + arguments.output, builtShaderSource)  # Write the compiled shader string to our target file
+                writeStringToFile(outputDirectoryName + "/" + arguments.output, builtShaderSource)          # Write the compiled shader string to our target file
                 print(">> Shader source saved to:", outputDirectoryName + "/" + arguments.output)
             else:
-                fileName = arguments.input.split("\\")[-1]                  # trims the second parameter down to its last sub-string, which SHOULD be the file name
-                writeStringToFile(outputDirectoryName + "/" + fileName, builtShaderSource)  # Write the compiled shader string to our target file
+                # TODO: fix this to work with \ or / directories
+                fileName = arguments.input.split("\\")[-1]                                                  # Trims the input file name down to its last sub-string, which SHOULD be the file name
+                writeStringToFile(outputDirectoryName + "/" + fileName, builtShaderSource)                  # Write the compiled shader string to our target file
                 print(">> Shader source saved to:", outputDirectoryName + "/" + fileName)
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
-    elif arguments.input_directory is not None:
+    elif arguments.input_directory is not None:                                                             # If the --all flag is set, compile all the files in the supplied directory
         # If the --all flag is set, compile all the files in the supplied directory
         # Get a list of all the files in the input_directory
         # Iterate for the number of files, compile the file just like the --input flag does but without the --output check
