@@ -6,10 +6,10 @@ from argparse import ArgumentParser
 def readFileToString(shaderName):
     fileContent = ""
     try:
-        shaderFile = open(shaderName, "r")  # Open the file to read
+        shaderFile = open(shaderName, "r")
         for x in shaderFile:
             fileContent += x
-        shaderFile.close()  # close the file
+        shaderFile.close()
         return fileContent
     except (OSError, IOError) as e:
         print(">>>> ERROR! - An error occured: ", e)
