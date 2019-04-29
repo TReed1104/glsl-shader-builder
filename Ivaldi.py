@@ -76,10 +76,15 @@ def main():
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
     elif arguments.input_directory is not None:                                                             # If the --all flag is set, compile all the files in the supplied directory
-        # If the --all flag is set, compile all the files in the supplied directory
-        # Get a list of all the files in the input_directory
-        # Iterate for the number of files, compile the file just like the --input flag does but without the --output check
-        print("TO BE IMPLEMENTED")
+        print(">> Building shader:", arguments.input)
+        for fileToCompile in os.listdir(arguments.input_directory):
+            mainShaderSource = readFileToString(os.path.join(arguments.input_directory, fileToCompile))     # Read the shader source file
+            if mainShaderSource != "":
+                builtShaderSource = executeIncludes(mainShaderSource)                                       # Compile the shader file, compiling down the includes/requires
+                writeStringToFile(outputDirectoryName + "/" + fileToCompile, builtShaderSource)             # Write the compiled shader string to our target file
+                print(">> Shader source saved to:", outputDirectoryName + "/" + fileToCompile)
+            else:
+                print(">>>> ERROR! - unable to open main source file, please check the entered name")
 
 if __name__ == '__main__':
     main()
