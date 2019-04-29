@@ -48,10 +48,9 @@ def main():
     # Parse the arguments to a usable form
     arguments = parser.parse_args()
 
-    
     # Program runtime
     print("---------------------------\nIvaldi, The Shader Smith\n---------------------------")
-    outputDirectoryName = "output"  # the directory to compile the shaders into
+    outputDirectoryName = "output"
     
     # Create the output directory to output our file to
     try:
