@@ -45,14 +45,11 @@ def main():
     inputMutualExclusionGroup.add_argument("-a", "--all", dest='input_directory', help='Compile all shaders found in the supplied directory, using their source file names as their output file names.', type=str)
     # Output arguments
     parser.add_argument("-o", "--output", dest='output', help='Where to output the compiled shader to. If --all is used, this argument will be ignored.', type=str)
-    # Parse the arguments to a usable form
     arguments = parser.parse_args()
 
     # Program runtime
     print("---------------------------\nIvaldi, The Shader Smith\n---------------------------")
     outputDirectoryName = "output"
-    
-    # Create the output directory to output our file to
     try:
         os.makedirs(outputDirectoryName)
         print(">> Creating the output directory")
@@ -60,28 +57,30 @@ def main():
         pass
 
     # Execute the supplied flags input flags
-    if arguments.input is not None:                                                                         # If the --input flag been supplied with an input, compile it
+    if arguments.input is not None:
+        # If the --input flag been supplied with an input, compile it
         print(">> Building shader:", arguments.input)
-        mainShaderSource = readFileToString(arguments.input)                                                # Read the shader source file
+        mainShaderSource = readFileToString(arguments.input)
         if mainShaderSource != "":
-            builtShaderSource = executeIncludes(mainShaderSource)                                           # Compile the shader file, compiling down the includes/requires
+            builtShaderSource = executeIncludes(mainShaderSource)
             if (arguments.output is not None):
-                writeStringToFile(outputDirectoryName + "/" + arguments.output, builtShaderSource)          # Write the compiled shader string to our target file
+                writeStringToFile(outputDirectoryName + "/" + arguments.output, builtShaderSource)
                 print(">> Shader source saved to:", outputDirectoryName + "/" + arguments.output)
             else:
                 # TODO: fix this to work with \ or / directories
-                fileName = arguments.input.split("\\")[-1]                                                  # Trims the input file name down to its last sub-string, which SHOULD be the file name
-                writeStringToFile(outputDirectoryName + "/" + fileName, builtShaderSource)                  # Write the compiled shader string to our target file
+                fileName = arguments.input.split("\\")[-1]  # Trims the input file name down to its last sub-string, which SHOULD be the file name
+                writeStringToFile(outputDirectoryName + "/" + fileName, builtShaderSource)
                 print(">> Shader source saved to:", outputDirectoryName + "/" + fileName)
         else:
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
-    elif arguments.input_directory is not None:                                                             # If the --all flag is set, compile all the files in the supplied directory
+    elif arguments.input_directory is not None:
+        # If the --all flag is set, compile all the files in the supplied directory
         print(">> Building shader:", arguments.input)
         for fileToCompile in os.listdir(arguments.input_directory):
-            mainShaderSource = readFileToString(os.path.join(arguments.input_directory, fileToCompile))     # Read the shader source file
+            mainShaderSource = readFileToString(os.path.join(arguments.input_directory, fileToCompile))
             if mainShaderSource != "":
-                builtShaderSource = executeIncludes(mainShaderSource)                                       # Compile the shader file, compiling down the includes/requires
-                writeStringToFile(outputDirectoryName + "/" + fileToCompile, builtShaderSource)             # Write the compiled shader string to our target file
+                builtShaderSource = executeIncludes(mainShaderSource)
+                writeStringToFile(outputDirectoryName + "/" + fileToCompile, builtShaderSource)
                 print(">> Shader source saved to:", outputDirectoryName + "/" + fileToCompile)
             else:
                 print(">>>> ERROR! - unable to open main source file, please check the entered name")
