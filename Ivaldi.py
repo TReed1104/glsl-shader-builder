@@ -67,7 +67,7 @@ def main():
                 writeStringToFile(outputDirectoryName + "/" + arguments.output, builtShaderSource)
                 print(">> Shader source saved to:", outputDirectoryName + "/" + arguments.output)
             else:
-                fileName = os.path.basename(arguments.input)
+                fileName = os.path.basename(arguments.input)    # Trim the input string to just the file name to reuse
                 writeStringToFile(outputDirectoryName + "/" + fileName, builtShaderSource)
                 print(">> Shader source saved to:", outputDirectoryName + "/" + fileName)
         else:
