@@ -75,8 +75,8 @@ def main():
             print(">>>> ERROR! - unable to open main source file, please check the entered name")
     elif arguments.input_directory is not None:
         # If the --all flag is set, compile all the files in the supplied directory
-        print(">> Building shader:", arguments.input)
         for fileToCompile in os.listdir(arguments.input_directory):
+            print(">> Building shader:", fileToCompile)
             mainShaderSource = readFileToString(os.path.join(arguments.input_directory, fileToCompile))
             if mainShaderSource != "":
                 builtShaderSource = executeIncludes(mainShaderSource)
