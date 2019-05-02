@@ -12,9 +12,9 @@ Guide:
 python Ivaldi.py [-h] (-i INPUT | -a INPUT_DIRECTORY) [-o OUTPUT]
 python Ivaldi.py [--help] (--input INPUT | --all INPUT_DIRECTORY) [--output OUTPUT]
 ```
-* -h, --help - Show this help message and exit
-* -i INPUT, --input INPUT - Specify the GLSL source file to be compile.
-* -a INPUT_DIRECTORY, --all INPUT_DIRECTPRY - Compile all shaders found in the supplied directory, using their source file names as their output file names.
+* -h, --help - Show the help message and exit
+* -i INPUT, --input INPUT - Specify the GLSL source file to compile.
+* -a INPUT_DIRECTORY, --all INPUT_DIRECTPRY - Compile all shaders found in the specified directory. The default value for this argument is 'shaders'. Files compiled by this mode use their source file names.
 * -o OUTPUT, --output OUTPUT - Where to output the compiled shader to. If --all is used, this argument will be ignored.
 
 Example:
