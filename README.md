@@ -1,5 +1,5 @@
 # Ivaldi GLSL builder
-Ivaldi is a lightweight python script used to compile multiple glsl component files into a single shader source file to be used by OpenGL.
+Ivaldi is a python preprocessing script allowing for the use of "C-like" include directives in GLSL, allowing for the implemention of reusable GLSL component files preventing the reimplementation of code.
 
 Ivaldi takes it's name from the Dwarven smiths from Norse Mythology
 
