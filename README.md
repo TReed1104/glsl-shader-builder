@@ -31,7 +31,7 @@ python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
 
 ## Naming conventions
 ### Shader source files
-The Ivaldi project follows the file naming conventions specified by the "Glslang" guidelines [(found here)](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/).
+The Ivaldi project follows the file naming conventions specified by the "Glslang" guidelines ([found here](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/)).
 
 These are defined as the following:
 * .vert - a vertex shader
