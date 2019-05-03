@@ -33,8 +33,6 @@ python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
 ### Shader source files
 The Ivaldi project follows the file naming conventions specified by the "Glslang" guidelines ([found here](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/)).
 
-**TODO: Implement the ability for ivaldi to run the compiled code through the GLSL reference compiler to ensure the compiled source is valid GLSL code.**
-
 These are defined as the following:
 * .vert - a vertex shader
 * .frag - a fragment shader
@@ -45,3 +43,8 @@ These are defined as the following:
 
 ### Shader component files
 For your shader component files, we ask that you use the ".glsl" file extension. This extension was chosen so that component files are correctly identified by most modern development environments as the being GLSL source code.
+
+
+## TODO List:
+The following are functionality to be added to ivaldi in the future.
+* Implement the ability for ivaldi to run the compiled code through the GLSL reference compiler to ensure the compiled source is valid GLSL code.
