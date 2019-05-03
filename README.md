@@ -8,8 +8,8 @@ GLSL as a language itself has no understanding of files, so does not support pre
 
 ## Usage
 ### Terms
-* Shader source file - Your main GLSL source code, in which you define your "#include" directives to be used by Ivaldi. (See "shaders/default.vert" within the repository as an example)
-* Shader component files - Your reusable pieces of GLSL code, the files where you define your functions or common variables which are to be compiled down into main shader source files. (See "components/global_uniforms.glsl" within the repository as an example)
+* Shader source file - Your main GLSL source code, in which you define your "#include" directives to be used by Ivaldi. (See [here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/shaders/default.vert) for an example)
+* Shader component files - Your reusable pieces of GLSL code, the files where you define your functions or common variables which are to be compiled down into main shader source files. (See [here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/components/global_uniforms.glsl) for an example)
 
 ### Guide
 ```bash
