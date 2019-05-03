@@ -29,13 +29,17 @@ python Ivaldi.py -a shaders
 python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
 ```
 
-## Naming Conventions
-**WIP**
+## Naming conventions
+### Shader source files
+The Ivaldi project follows the file naming conventions specified by the "Glslang" guidelines [(found here)](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/).
 
-According to the "Glslang" guidelines [(Seen here)](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/), the correct file naming conventions are as follows:
+These are defined as the following:
 * .vert - a vertex shader
 * .tesc - a tessellation control shader
 * .tese - a tessellation evaluation shader
 * .geom - a geometry shader
 * .frag - a fragment shader
 * .comp - a compute shader
+
+### Shader component files
+For your shader component files, we ask that you use the ".glsl" file extension. This extension was chosen so that your GLSL functions and variables are correctly identified by most modern IDEs as the correct languages.
