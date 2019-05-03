@@ -33,7 +33,7 @@ python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
 ### Shader source files
 The Ivaldi project follows the file naming conventions specified by the "Glslang" guidelines ([found here](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/)).
 
-**TODO: Implement a GLSL interface to ensure the compiled source is valid GLSL code.**
+**TODO: Implement the ability for ivaldi to run the compiled code through the GLSL reference compiler to ensure the compiled source is valid GLSL code.**
 
 These are defined as the following:
 * .vert - a vertex shader
