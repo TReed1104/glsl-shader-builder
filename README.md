@@ -22,6 +22,29 @@ GLSL as a language itself has no understanding of files, so does not support pre
 
 ---
 
+## Usage guide
+Arguments:
+```bash
+python Ivaldi.py [-h] (-i INPUT | -a INPUT_DIRECTORY) [-o OUTPUT]
+python Ivaldi.py [--help] (--input INPUT | --all INPUT_DIRECTORY) [--output OUTPUT]
+```
+* -h, --help - Show the help message and exit
+* -i INPUT, --input INPUT - Specify the GLSL source file to compile.
+* -a INPUT_DIRECTORY, --all INPUT_DIRECTPRY - Compile all shaders found in the specified directory. The default value for this argument is 'shaders'. Files compiled by this mode use their source file names.
+* -o OUTPUT, --output OUTPUT - Where to output the compiled shader to. If --all is used, this argument will be ignored.
+
+Examples:
+```bash
+python Ivaldi.py -h
+python Ivaldi.py -i shaders\default.vert
+python Ivaldi.py -a shaders
+python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
+```
+
+<br>
+
+---
+
 ## Code Example
 ### Shader Component - fragment_in.glsl ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/components/fragment_in.glsl))
 ```GLSL
@@ -69,29 +92,6 @@ uniform vec4 iMouse;
 void main() {
 	outputColour = vec4(fragmentColour, 1.0f);
 }
-```
-
-<br>
-
----
-
-## Usage guide
-Arguments:
-```bash
-python Ivaldi.py [-h] (-i INPUT | -a INPUT_DIRECTORY) [-o OUTPUT]
-python Ivaldi.py [--help] (--input INPUT | --all INPUT_DIRECTORY) [--output OUTPUT]
-```
-* -h, --help - Show the help message and exit
-* -i INPUT, --input INPUT - Specify the GLSL source file to compile.
-* -a INPUT_DIRECTORY, --all INPUT_DIRECTPRY - Compile all shaders found in the specified directory. The default value for this argument is 'shaders'. Files compiled by this mode use their source file names.
-* -o OUTPUT, --output OUTPUT - Where to output the compiled shader to. If --all is used, this argument will be ignored.
-
-Examples:
-```bash
-python Ivaldi.py -h
-python Ivaldi.py -i shaders\default.vert
-python Ivaldi.py -a shaders
-python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
 ```
 
 <br>
