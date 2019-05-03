@@ -35,10 +35,10 @@ The Ivaldi project follows the file naming conventions specified by the "Glslang
 
 These are defined as the following:
 * .vert - a vertex shader
+* .frag - a fragment shader
 * .tesc - a tessellation control shader
 * .tese - a tessellation evaluation shader
 * .geom - a geometry shader
-* .frag - a fragment shader
 * .comp - a compute shader
 
 ### Shader component files
