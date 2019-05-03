@@ -48,3 +48,4 @@ For your shader component files, we ask that you use the ".glsl" file extension.
 ## TODO List:
 The following are functionality to be added to ivaldi in the future.
 * Implement the ability for ivaldi to run the compiled code through the GLSL reference compiler to ensure the compiled source is valid GLSL code.
+* Expand ivaldi to allow #includes within its component files, this means handling recursive inclusions.
