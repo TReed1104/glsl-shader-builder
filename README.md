@@ -42,4 +42,4 @@ These are defined as the following:
 * .comp - a compute shader
 
 ### Shader component files
-For your shader component files, we ask that you use the ".glsl" file extension. This extension was chosen so that your GLSL functions and variables are correctly identified by most modern IDEs as the correct languages.
+For your shader component files, we ask that you use the ".glsl" file extension. This extension was chosen so that component files are correctly identified by most modern development environments as the being GLSL source code.
