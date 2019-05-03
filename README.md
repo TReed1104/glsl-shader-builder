@@ -1,5 +1,5 @@
 # Ivaldi GLSL builder
-Ivaldi is a python preprocessing script allowing for the use of "C-like" include directives in GLSL, allowing for the implemention of reusable GLSL component files preventing the reimplementation of code.
+Ivaldi is a python preprocessing script, allowing for the use of "C-like" include directives in GLSL. This allows for the use of reusable GLSL component files in order to help prevent the reimplementation of code.
 
 Ivaldi takes it's name from the Dwarven smiths from Norse Mythology
 
