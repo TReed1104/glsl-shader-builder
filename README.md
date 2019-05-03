@@ -23,16 +23,22 @@ GLSL as a language itself has no understanding of files, so does not support pre
 ---
 
 ## Code Example
-### Shader Component
-#### File - fragment_in.glsl ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/components/fragment_in.glsl))
+### Shader Component - fragment_in.glsl ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/components/fragment_in.glsl))
 ```GLSL
 // Generic In variables for a fragment shader (mesh colour and TexCoords)
 in vec3 fragmentColour;
 in vec2 UV;
 ```
 
-### Shader source file
-#### File: default.frag ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/shaders/default.frag))
+### Shader Component - global_uniforms.glsl ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/components/global_uniforms.glsl))
+```GLSL
+// Universal uniforms, these match shadertoys
+uniform vec3 iResolution;
+uniform float iTime;
+uniform vec4 iMouse;
+```
+
+### Shader Source File - default.frag ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/shaders/default.frag))
 ```GLSL
 #version 330
 #include components/fragment_in.glsl
