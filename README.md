@@ -3,16 +3,22 @@ Ivaldi is a lightweight python script used to compile multiple glsl component fi
 
 Ivaldi takes it's name from the Dwarven smiths from Norse Mythology
 
+<br>
+
 ---
 
 ## The Aim
 GLSL as a language itself has no understanding of files, so does not support preprocessor directives like "#include", "import" or "requires". This means that developers have to reimplement or copy the same variables and functions multiple times in order to reuse their functionality across each of their shaders. **Ivaldi** aims to fix this issue by acting as a preprocessing script, used to compile multiple GLSL source files down into single source file to be loaded and compiled in any OpenGL program.
 
+<br>
+
 ---
 
 ## Terminology
-* Shader source file - Your main GLSL source code, in which you define your "#include" directives to be used by Ivaldi (See [here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/shaders/default.vert) for an example).
-* Shader component files - Your reusable pieces of GLSL code, the files where you define your functions or common variables which are to be compiled down into main shader source files (See [here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/components/global_uniforms.glsl) for an example).
+* Shader source file - Your main GLSL source code, in which you define your "#include" directives to be used by Ivaldi.
+* Shader component files - Your reusable pieces of GLSL code, the files where you define your functions or common variables which are to be compiled down into main shader source files.
+
+<br>
 
 ---
 
@@ -41,6 +47,8 @@ void main() {
 
 ```
 
+<br>
+
 ---
 
 ## Usage guide
@@ -62,6 +70,8 @@ python Ivaldi.py -a shaders
 python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
 ```
 
+<br>
+
 ---
 
 ## File Naming conventions
@@ -79,9 +89,11 @@ These are defined as the following:
 ### Shader component files
 For your shader component files, we ask that you use the ".glsl" file extension. This extension was chosen so that component files are correctly identified by most modern development environments as the being GLSL source code.
 
+<br>
+
 ---
 
-## TODO List:
+## Todo List:
 The following are functionality to be added to ivaldi in the future.
 * Implement the ability for ivaldi to run the compiled code through the GLSL reference compiler to ensure the compiled source is valid GLSL code.
 * Expand ivaldi to allow #includes within its component files, this means handling recursive inclusions.
