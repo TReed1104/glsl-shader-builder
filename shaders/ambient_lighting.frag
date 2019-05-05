@@ -5,9 +5,7 @@ out vec4 outputColour;
 
 #include components/global_uniforms.glsl
 
-// Lighting
-uniform vec3 lightingColor;
-uniform float ambientStrength;  // How strong is the ambient lighting?
+#include components/lighting_uniforms.glsl
 
 void main() {
     vec3 ambient = (ambientStrength * lightingColor) * fragmentColour;
