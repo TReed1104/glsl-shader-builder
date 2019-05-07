@@ -7,7 +7,7 @@
 
 void main() {
 	fragmentColour = vertexColor;
-	vec4 newPosition = vec4(vertexPosition, 1.0);
-	gl_Position = u_projectionMatrix * u_viewMatrix * u_modelMatrix * newPosition;
+	gl_Position = u_projectionMatrix * u_viewMatrix * u_modelMatrix * vec4(vertexPosition, 1.0);
 	UV = vertexUV;
+	normal = vertexNormal;
 }
