@@ -38,9 +38,9 @@ python Ivaldi.py [--help] (--input INPUT | --all INPUT_DIRECTORY) [--output OUTP
 Examples:
 ```bash
 python Ivaldi.py -h
-python Ivaldi.py -i shaders\default.vert
-python Ivaldi.py -a shaders
-python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
+python Ivaldi.py -i glsl-shaders\shaders\default.vert
+python Ivaldi.py -a glsl-shaders\shaders
+python Ivaldi.py -i glsl-shaders\shaders\default.vert -o compiled_shader.vert
 ```
 
 <br>
