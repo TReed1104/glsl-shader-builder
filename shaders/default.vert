@@ -9,7 +9,7 @@ void main() {
 	// Set our vertex output values, these are what we use inside the fragment shaders
 	fragmentColour = vertexColor;
 	UV = vertexUV;
-	normal = vertexNormal;
+	normal = mat3(transpose(inverse(u_modelMatrix))) * vertexNormal;
 
 	// Output the positional value after applying the transformation matrices
 	gl_Position = u_projectionMatrix * u_viewMatrix * u_modelMatrix * vec4(vertexPosition, 1.0);
