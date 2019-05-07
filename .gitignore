@@ -3,6 +3,3 @@
 /build
 /compiled
 /output
-
-## Ignore my shader repo if its been cloned aswell
-/glsl-shaders
