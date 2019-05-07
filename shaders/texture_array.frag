@@ -1,7 +1,7 @@
 #version 330
 #include components/fragment_in.glsl
 
-out vec4 outputColour;
+#include components/fragment_out.glsl
 
 #include components/global_uniforms.glsl
 
