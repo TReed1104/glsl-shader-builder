@@ -8,6 +8,6 @@ out vec4 outputColour;
 #include components/lighting_uniforms.glsl
 
 void main() {
-    vec3 ambient = (ambientStrength * lightingColor) * fragmentColour;
-    outputColour = vec4(ambient, 1.0);
+    vec3 ambient = (ambientStrength * lightingColor);
+    outputColour = vec4((ambient * fragmentColour), 1.0);
 }
