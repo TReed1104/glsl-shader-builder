@@ -48,14 +48,21 @@ python Ivaldi.py -i shaders\default.vert -o compiled_shader.vert
 ---
 
 ## Code Example
-### Shader Component - fragment_in.glsl ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/components/fragment_in.glsl))
+### Shader Component - fragment_in.glsl ([available here](https://github.com/TReed1104/glsl-shaders/blob/master/components/fragment_in.glsl))
 ```GLSL
 // Generic In variables for a fragment shader (mesh colour and TexCoords)
 in vec3 fragmentColour;
 in vec2 UV;
+in vec3 normal;
 ```
 
-### Shader Component - global_uniforms.glsl ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/components/global_uniforms.glsl))
+### Shader Component - fragment_out.glsl ([available here](https://github.com/TReed1104/glsl-shaders/blob/master/components/fragment_out.glsl))
+```GLSL
+// Generic Out variables for a fragment shader
+out vec4 outputColour;
+```
+
+### Shader Component - global_uniforms.glsl ([available here](https://github.com/TReed1104/glsl-shaders/blob/master/components/global_uniforms.glsl))
 ```GLSL
 // Universal uniforms, these match shadertoys
 uniform vec3 iResolution;
@@ -63,14 +70,14 @@ uniform float iTime;
 uniform vec4 iMouse;
 ```
 
-### Shader Source File - default.frag ([available here](https://github.com/TReed1104/ivaldi-glsl-builder/blob/master/shaders/default.frag))
+### Shader Source File - default.frag ([available here](https://github.com/TReed1104/glsl-shaders/blob/master/shaders/default.frag))
 ```GLSL
 #version 330
-#include components/fragment_in.glsl
+#include glsl-shaders/components/fragment_in.glsl
 
-out vec4 outputColour;
+#include glsl-shaders/components/fragment_out.glsl
 
-#include components/global_uniforms.glsl
+#include glsl-shaders/components/global_uniforms.glsl
 
 void main() {
 	outputColour = vec4(fragmentColour, 1.0f);
