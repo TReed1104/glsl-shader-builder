@@ -42,7 +42,7 @@ def main():
     # Inputs arguments, these are mutually exclusive
     inputMutualExclusionGroup = parser.add_mutually_exclusive_group(required=True)
     inputMutualExclusionGroup.add_argument("-i", "--input", dest="input", help="Specify the GLSL source file to compile.", type=str)
-    inputMutualExclusionGroup.add_argument("-a", "--all", nargs="?", dest="input_directory", help="Compile all shaders found in the specified directory. The default value for this argument is 'shaders'. Files compiled by this mode use their source file names.", type=str, const="glsl-shaders/shaders")
+    inputMutualExclusionGroup.add_argument("-a", "--all", nargs="?", dest="input_directory", help="Compile all shaders found in the specified directory. The default value for this argument is 'shaders'. Files compiled by this mode use their source file names.", type=str, const="glsl-shaders/source")
     # Output arguments
     parser.add_argument("-o", "--output", dest="output", help="Where to output the compiled shader to. If --all is used, this argument will be ignored.", type=str)
     arguments = parser.parse_args()
