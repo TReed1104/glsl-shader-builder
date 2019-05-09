@@ -38,9 +38,9 @@ python Ivaldi.py [--help] (--input INPUT | --all INPUT_DIRECTORY) [--output OUTP
 Examples:
 ```bash
 python Ivaldi.py -h
-python Ivaldi.py -i glsl-shaders\shaders\default.vert
-python Ivaldi.py -a glsl-shaders\shaders
-python Ivaldi.py -i glsl-shaders\shaders\default.vert -o compiled_shader.vert
+python Ivaldi.py -i glsl-shaders\source\default.vert
+python Ivaldi.py -a glsl-shaders\source
+python Ivaldi.py -i glsl-shaders\source\default.vert -o compiled_shader.vert
 ```
 
 <br>
@@ -70,7 +70,7 @@ uniform float iTime;
 uniform vec4 iMouse;
 ```
 
-### Shader Source File - default.frag ([available here](https://github.com/TReed1104/glsl-shaders/blob/master/shaders/default.frag))
+### Shader Source File - default.frag ([available here](https://github.com/TReed1104/glsl-shaders/blob/master/source/default.frag))
 ```GLSL
 #version 330
 #include glsl-shaders/components/fragment_in.glsl
@@ -90,7 +90,9 @@ void main() {
 // Generic In variables for a fragment shader (mesh colour and TexCoords)
 in vec3 fragmentColour;
 in vec2 UV;
+in vec3 normal;
 
+// Generic Out variables for a fragment shader
 out vec4 outputColour;
 
 // Universal uniforms, these match shadertoys
