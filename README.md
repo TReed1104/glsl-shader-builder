@@ -39,8 +39,13 @@ Examples:
 ```bash
 python Ivaldi.py -h
 python Ivaldi.py -i glsl-shaders\source\default.vert
+python Ivaldi.py --input glsl-shaders\source\default.vert
+python Ivaldi.py -a
+python Ivaldi.py --all
 python Ivaldi.py -a glsl-shaders\source
+python Ivaldi.py --all glsl-shaders\source
 python Ivaldi.py -i glsl-shaders\source\default.vert -o compiled_shader.vert
+python Ivaldi.py --input glsl-shaders\source\default.vert --output compiled_shader.vert
 ```
 
 <br>
