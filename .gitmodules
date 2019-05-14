@@ -1,4 +1,0 @@
-[submodule "glsl-shaders"]
-	path = glsl-shaders
-	url = https://github.com/TReed1104/glsl-shaders.git
-	branch = master
